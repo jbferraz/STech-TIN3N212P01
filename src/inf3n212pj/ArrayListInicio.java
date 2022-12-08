@@ -64,6 +64,10 @@ public class ArrayListInicio {
         Collections.sort(nomes);
         System.out.println("Array ordenado");
         System.out.println("Nomes: " + nomes.toString());
+        
+        Collections.reverse(nomes);
+        System.out.println("Array ordem inversa");
+        System.out.println("Nomes: " + nomes.toString());
     }
     
 }
