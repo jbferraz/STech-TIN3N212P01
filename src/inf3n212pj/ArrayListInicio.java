@@ -101,5 +101,4 @@ public class ArrayListInicio {
         return false;
     }//fim pesqNome
 
-    
 }
