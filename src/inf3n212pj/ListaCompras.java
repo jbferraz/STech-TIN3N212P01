@@ -57,14 +57,33 @@ public class ListaCompras {
 
     public static void addItem() {
         Scanner leia = new Scanner(System.in);
-        System.out.print("Digite um item: ");
-        listaItens.add(leia.nextLine());
+        String add, item;
+        do {
+            System.out.print("Digite um item: ");
+            item = leia.nextLine();
+            if (!verificaItem(item)) {//"!" ela faz inversão do retorno do método
+                listaItens.add(item);
+            } else {
+                System.out.println(item + " já existem!");
+            }
+            System.out.print("Deseja adicionar mais item? S/N: ");
+            add = leia.nextLine();
+        } while (add.equalsIgnoreCase("s"));
     }//fim addItem
 
     public static void removeItem() {
         Scanner leia = new Scanner(System.in);
-        System.out.print("Digite um item a remover: ");
-        listaItens.remove(leia.nextLine());
+        if (listaItens.size() > 0) {
+            System.out.print("Digite um item a remover: ");
+            String item = leia.nextLine();
+            if (verificaItem(item)) {
+                listaItens.remove(item);
+            }else{
+                System.out.println(item + " não existe na lista.");
+            }
+        } else {
+            System.out.println("Lista Vazia!");
+        }
     }//fim removeItem
 
     public static void imprimeLista() {
@@ -74,5 +93,19 @@ public class ListaCompras {
             System.out.println(listaIten);
         }
     }// fim imprime
+
+    /**
+     * Verifica se o item existe na lista e retorna boolean
+     * @param item
+     * @return true/false
+     */
+    public static boolean verificaItem(String item) {
+        for (String listaIten : listaItens) {
+            if (listaIten.equalsIgnoreCase(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
