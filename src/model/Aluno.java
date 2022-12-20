@@ -10,6 +10,8 @@ package model;
  * @author jbferraz
  */
 public class Aluno {
+
+    //Atributos ou caracteristicas
     private int matricula;
     private String cpf;
     private String nome;
@@ -19,11 +21,15 @@ public class Aluno {
     private boolean status;
     private String endereco;
 
+    /**
+     * Construtor vazio para poder acessar os métodos acessores getter e setter
+     */
     public Aluno() {
     }
 
     /**
      * Construtor com todos os atributos
+     *
      * @param matricula
      * @param cpf
      * @param nome
@@ -31,7 +37,7 @@ public class Aluno {
      * @param idade
      * @param telefone
      * @param status
-     * @param endereco 
+     * @param endereco
      */
     public Aluno(int matricula, String cpf, String nome, String sexo, int idade, String telefone, boolean status, String endereco) {
         this.matricula = matricula;
@@ -43,9 +49,11 @@ public class Aluno {
         this.status = status;
         this.endereco = endereco;
     }
+
     /**
      * Método que retorna a matricula do aluno
-     * @return 
+     *
+     * @return
      */
     public int getMatricula() {
         return matricula;
@@ -53,7 +61,8 @@ public class Aluno {
 
     /**
      * Atribui matricula do aluno
-     * @param matricula 
+     *
+     * @param matricula
      */
     public void setMatricula(int matricula) {
         this.matricula = matricula;
@@ -99,6 +108,10 @@ public class Aluno {
         this.telefone = telefone;
     }
 
+    /**
+     * serve para verificar se o aluno esta ativo
+     * @return 
+     */
     public boolean isStatus() {
         return status;
     }
@@ -115,13 +128,17 @@ public class Aluno {
         this.endereco = endereco;
     }
 
+    /**
+     * '@Override serve para subscrever método interno de saída do java
+     * @return
+     */
     @Override
     public String toString() {
-        return "Aluno{" + "matricula=" + matricula + 
-                ", cpf=" + cpf + ", nome=" + nome + 
-                ", sexo=" + sexo + ", idade=" + idade + 
-                ", telefone=" + telefone + ", status=" + 
-                status + ", endereco=" + endereco + '}';
-    }  
-    
+        return "Aluno{" + "matricula=" + matricula
+                + ", cpf=" + cpf + ", nome=" + nome
+                + ", sexo=" + sexo + ", idade=" + idade
+                + ", telefone=" + telefone + ", status="
+                + status + ", endereco=" + endereco + '}';
+    }
+
 }
