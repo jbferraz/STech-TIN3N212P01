@@ -54,7 +54,7 @@ public class CadAlunosNew {
 
     public static void menu() {
         System.out.println(".: Sistema de Alunos :.");
-        System.out.println("1 - Cadastrar Aluno");
+        System.out.println("1 - Cadastrar/Ativar Aluno");
         System.out.println("2 - Editar Aluno");
         System.out.println("3 - Imprimir Todos Alunos");
         System.out.println("4 - Deletar/Inativar Aluno");
@@ -93,7 +93,7 @@ public class CadAlunosNew {
                 if (op == 1) {
                     getAluno(cpf).setStatus(true);
                     System.out.println("Aluno " + getAluno(cpf).getNome() + " ativado.");
-                } 
+                }
             }
         }
     }//fim cadAluno
@@ -168,5 +168,28 @@ public class CadAlunosNew {
         } else {
             System.out.println("Aluno não encontrado!");
         }
-    }
+    }//fim deletarAluno
+
+    public static void atualizarAluno() {
+        System.out.println("Atualizar cadastro do aluno");
+        System.out.print("Informe cpf do aluno: ");
+        String cpf = leia.nextLine();
+        if (verCPF(cpf)) {
+            Aluno alunoEditar = getAluno(cpf);
+            System.out.println("Dados do Aluno: ");
+            System.out.println(alunoEditar.toString());
+            System.out.print("Informe o sexo: ");
+            alunoEditar.setSexo(leia.nextLine());
+            System.out.print("Informe a idade: ");
+            alunoEditar.setIdade(leiaInt());
+            System.out.print("Informe o telefone: ");
+            alunoEditar.setTelefone(leia.nextLine());
+            System.out.print("Informe o endereço: ");
+            alunoEditar.setEndereco(leia.nextLine());
+            System.out.println("Dados atualizados: \n" + alunoEditar.toString());
+        } else {
+            System.out.println("Aluno com cpf " + cpf + " não encontrado.");
+        }
+
+    }//fim atualizarAluno
 }
